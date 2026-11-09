@@ -1,0 +1,14 @@
+# C9 · Análisis de riesgos (MAGERIT, simplificado) · La Taquilla
+# riesgo = probabilidad × impacto (los dos de 1 a 5)
+# nivel: 1–4 bajo · 5–9 medio · 10–15 alto · 16–25 crítico
+# ✍️ C9 · Añade al menos CUATRO riesgos más, con todos los campos. Tienen que estar el ransomware y la caída de un
+#         balanceador, cada uno con la salvaguarda que has montado en esta práctica.
+riesgos:
+  - activo: Web de venta (la tienda de entradas)       # 👀 ejemplo resuelto
+    dimension: integridad
+    amenaza: Alguien cambia los precios de la web
+    probabilidad: 2
+    impacto: 4
+    riesgo: 8
+    nivel: medio
+    salvaguarda: Usuarios con contraseña larga y copias para volver atrás

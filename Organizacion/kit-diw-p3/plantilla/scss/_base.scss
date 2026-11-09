@@ -1,0 +1,47 @@
+// _base.scss — 👀 lo común a toda la página
+@use "tokens" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $fuente;
+  color: $color-texto;
+  background: $color-fondo;
+  line-height: 1.5;
+}
+
+// Texto que solo oyen los lectores de pantalla (la edad, las butacas)
+.visualmente-oculto {
+  position: absolute;
+  width: 1px; /* stylelint-disable-line declaration-property-unit-disallowed-list */
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Lo que lleva el atributo hidden NO se ve, aunque su clase diga display: flex o grid
+[hidden] {
+  display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+h1,
+h2,
+h3 {
+  font-family: $fuente-titulos;
+  line-height: 1.2;
+}
+
+a {
+  color: $color-marca;
+}
+
+:focus-visible {
+  outline: 3px solid $color-marca;
+  outline-offset: 2px;
+}

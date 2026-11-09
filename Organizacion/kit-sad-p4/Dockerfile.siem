@@ -1,0 +1,24 @@
+# El SIEM de la clínica: Wazuh (solo el «manager»: recoge, decodifica, aplica reglas y genera alertas).
+# Sin indexer ni panel web, para que quepa en cualquier ordenador (≈ 550 MB de RAM).
+# Lee los registros de la web (/logs/web, el /var/log de la web compartido en modo solo lectura).
+FROM wazuh/wazuh-manager:4.9.2
+# La configuración «de fábrica» está en data_tmp y el arranque la copia a /var/ossec/etc.
+# 1) Fuera los módulos que solo meten ruido en el laboratorio (CIS, inventario, integridad, vulnerabilidades por internet)
+RUN f=/var/ossec/data_tmp/permanent/var/ossec/etc/ossec.conf \
+ && sed -i '/<sca>/,/<\/sca>/ s#<enabled>yes</enabled>#<enabled>no</enabled>#' $f \
+ && sed -i '/<vulnerability-detection>/,/<\/vulnerability-detection>/ s#<enabled>yes</enabled>#<enabled>no</enabled>#' $f \
+ && sed -i '/<wodle name="syscollector">/,/<\/wodle>/ s#<disabled>no</disabled>#<disabled>yes</disabled>#' $f \
+ && sed -i '/<rootcheck>/,/<\/rootcheck>/ s#<disabled>no</disabled>#<disabled>yes</disabled>#' $f \
+ && sed -i '/<syscheck>/,/<\/syscheck>/ s#<disabled>no</disabled>#<disabled>yes</disabled>#' $f
+# 2) Los dos registros de la web de citas (Wazuh admite varios bloques <ossec_config> en el mismo fichero: se añade uno al final)
+RUN printf '%s\n' \
+    '<ossec_config>' \
+    '  <!-- Los registros de la web de citas de la clínica (SAD P4) -->' \
+    '  <localfile><log_format>syslog</log_format><location>/logs/web/auth.log</location></localfile>' \
+    '  <localfile><log_format>apache</log_format><location>/logs/web/nginx/access.log</location></localfile>' \
+    '</ossec_config>' >> /var/ossec/data_tmp/permanent/var/ossec/etc/ossec.conf
+# 3) Tus reglas viven en tu carpeta siem/reglas, montada en /var/ossec/lab-reglas. Al arrancar se enlazan con un enlace
+#    RELATIVO (y antes de 2-manager, que es quien arranca Wazuh): los demonios de Wazuh trabajan encerrados (chroot) en /var/ossec y no verían un enlace a otra carpeta.
+RUN printf '%s\n' '#!/usr/bin/with-contenv bash' \
+    'ln -sf ../../lab-reglas/local_rules.xml /var/ossec/etc/rules/local_rules.xml' > /etc/cont-init.d/1-lab \
+ && chmod +x /etc/cont-init.d/1-lab

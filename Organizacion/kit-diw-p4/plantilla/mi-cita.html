@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi cita · Consultorio Los Alcatraces</title>
+    <script type="module" src="/src/mi-cita.js"></script>
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <header class="cabecera">
+      <a class="cabecera__marca" href="/"
+        ><img src="/img/logo.svg" alt="" width="40" height="40" /> Consultorio Los Alcatraces</a
+      >
+      <nav class="cabecera__menu" aria-label="Principal">
+        <ul class="cabecera__lista">
+          <li><a class="cabecera__enlace" href="/">Inicio</a></li>
+          <li><a class="cabecera__enlace" href="/cita.html">Pedir cita</a></li>
+          <li><a class="cabecera__enlace" href="/mi-cita.html" aria-current="page">Mi cita</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="contenido" id="contenido" tabindex="-1">
+      <h1>Mi cita</h1>
+      <p>Escribe el código del SMS que te enviamos al pedirla para ver tu cita, añadirla al calendario o anularla.</p>
+      <form class="buscar" novalidate>
+        <input class="buscar__campo" id="codigo" name="codigo" placeholder="Código de la cita" autocomplete="off" />
+        <p class="buscar__error" id="codigo-error"></p>
+        <button class="boton" type="submit">Buscar mi cita</button>
+      </form>
+      <section class="cita" aria-labelledby="cita-titulo" hidden></section>
+    </main>
+    <footer class="pie">
+      <p class="pie__texto">Consultorio Los Alcatraces · Calle de la Marea, 12 · Cádiz · 956 000 111</p>
+      <p class="pie__texto"><a href="/accesibilidad.html">Declaración de accesibilidad</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+# El vigilante de prácticas (docs/practicas-auto.md). Repo PÚBLICO: en los registros solo salen códigos (a3), módulo
+# y práctica. Sin artifacts ni caché: los resultados van directos al panel. Nunca pull_request ni pull_request_target.
+name: Vigilante de prácticas
+on:
+  schedule:
+    - cron: "5 * * * *"      # cada hora; el panel dice si le toca a alguna práctica
+  workflow_dispatch:         # el ⚡ del panel lo lanza sin nada; a mano, con lo de abajo
+    inputs:
+      modulo: { description: "Módulo («cola»: lo que haya pedido el panel)", required: false, type: choice, default: cola, options: [cola, DWEC, DIW, IAW, SAD] }
+      practica: { description: Práctica, required: false, default: P2 }
+      quien: { description: "nuevos, todos o un código (a3)", required: false, default: nuevos }
+      parecidos: { description: Buscar también código parecido, required: false, type: boolean, default: false }
+permissions: { contents: read }
+concurrency: { group: vigilante, cancel-in-progress: false }
+jobs:
+  vigilar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Vigilar
+        timeout-minutes: 110   # deja tiempo al paso de cerrar dentro de los 120 del job
+        env:
+          PANEL_URL: ${{ secrets.PANEL_URL }}
+          PANEL_CLAVE: ${{ secrets.PANEL_CLAVE }}
+          ORIGEN: github
+          TZ: Europe/Madrid
+          PEDIDO_MODULO: ${{ inputs.modulo }}
+          PEDIDO_PRACTICA: ${{ inputs.practica }}
+          PEDIDO_QUIEN: ${{ inputs.quien }}
+          PEDIDO_PARECIDOS: ${{ inputs.parecidos }}
+        run: node validador/vigilante.mjs una
+      # Si el paso de arriba se corta (tiempo agotado, cancelado o un fallo), lo que dejó abierto pasa a «mal»
+      # en el panel. Sin esto, la página seguiría «comprobando…» hasta 150 min.
+      - name: Cerrar lo que quedó abierto
+        if: ${{ cancelled() || failure() }}
+        env:
+          PANEL_URL: ${{ secrets.PANEL_URL }}
+          PANEL_CLAVE: ${{ secrets.PANEL_CLAVE }}
+          ORIGEN: github
+        run: node validador/vigilante.mjs cerrar

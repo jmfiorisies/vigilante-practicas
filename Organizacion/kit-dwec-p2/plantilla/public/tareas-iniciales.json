@@ -1,0 +1,7 @@
+[
+  { "titulo": "Leer el enunciado de la práctica", "prioridad": "alta", "limite": "2026-11-20" },
+  { "titulo": "Preparar la defensa", "prioridad": "alta", "limite": "2026-11-26" },
+  { "titulo": "Copia de seguridad del repositorio", "limite": "2026-11-21", "cadaDias": 7 },
+  { "titulo": "Repasar la UD6", "prioridad": "media" },
+  { "titulo": "Ordenar el escritorio", "prioridad": "baja" }
+]

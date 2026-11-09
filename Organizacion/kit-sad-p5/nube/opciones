@@ -1,0 +1,4 @@
+# Opciones del servicio de copias fuera de la sede (rest-server). ./lab.sh nube las aplica.
+#   --private-repos   cada usuario solo ve su repositorio (el de La Taquilla es /taquilla/)
+# ✍️ C5 · Que NADIE pueda borrar ni cambiar una copia ya hecha, solo añadir copias nuevas
+OPCIONES="--private-repos"

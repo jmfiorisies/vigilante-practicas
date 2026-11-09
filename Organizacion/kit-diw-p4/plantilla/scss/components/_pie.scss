@@ -1,0 +1,13 @@
+// _pie.scss — 👀 El pie, igual en las cuatro páginas.
+@use "../tokens" as *;
+
+.pie {
+  margin-top: $espacio-xl;
+  padding: $espacio-m;
+  background: $color-fondo-suave;
+  text-align: center;
+
+  &__texto {
+    margin: $espacio-xs 0;
+  }
+}

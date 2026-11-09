@@ -1,0 +1,74 @@
+// _selector-butacas.scss — 👀 ya está hecho. La elegida se distingue por el color Y por el borde (no solo el color).
+@use "../../../../scss/tokens" as *;
+
+.butacas {
+  display: grid;
+  gap: $espacio-sm;
+  min-width: 0;
+  margin: 0;
+  padding: $espacio-md;
+  background: $color-superficie;
+  border: 1px solid $color-borde;
+  border-radius: $radio;
+
+  &__titulo {
+    font-weight: 700;
+  }
+
+  &__pantalla {
+    margin: 0;
+    padding: $espacio-xs;
+    color: $color-sobre-cabecera;
+    text-align: center;
+    background: $color-cabecera;
+    border-radius: $radio $radio 0 0;
+  }
+
+  &__sala {
+    display: grid;
+    gap: $espacio-xs;
+    overflow-x: auto;
+  }
+
+  &__fila {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(2.75rem, 1fr));
+    gap: $espacio-xs;
+  }
+
+  &__butaca {
+    min-height: 2.75rem;
+    font: inherit;
+    font-size: 0.875rem;
+    color: $color-texto;
+    background: $color-butaca;
+    border: 2px solid $color-texto-suave;
+    border-radius: $radio $radio $espacio-xs $espacio-xs;
+    cursor: pointer;
+
+    &[aria-pressed="true"] {
+      font-weight: 700;
+      background: $color-butaca-elegida;
+      border-color: $color-texto;
+      border-width: 3px;
+    }
+
+    &:disabled {
+      color: $color-texto-suave;
+      background: $color-butaca-ocupada;
+      border-style: dashed;
+      cursor: not-allowed;
+    }
+  }
+
+  &__resumen {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  &__error {
+    margin: 0;
+    font-weight: 600;
+    color: $color-error;
+  }
+}

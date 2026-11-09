@@ -1,0 +1,2 @@
+# B1 · LO PRIMERO (orden de volatilidad): lo que se pierde si se apaga la máquina.
+#      Dentro de la web, guarda aquí los procesos y las conexiones TAL COMO ESTÁN, antes de tocar nada.

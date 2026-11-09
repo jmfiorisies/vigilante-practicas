@@ -1,0 +1,31 @@
+# compose.yaml · la P3, Cine Bahía: Node, Vite, Sass, Storybook, Stylelint y Prettier viven aquí dentro.
+# En tu ordenador no se instala nada.
+#   docker compose run --rm web npm install                  ← la primera vez (descarga las herramientas)
+#   docker compose up storybook                              ← el catálogo:  http://localhost:6006
+#   docker compose up web                                    ← las páginas:  http://localhost:5190
+#   docker compose run --rm web npm run comprobar            ← el comprobador (A o B: npm run comprobar A)
+#   docker compose run --rm web npm run lint                 ← Stylelint (el CSS, en BEM y con tokens)
+#   docker compose run --rm web npm run formato:comprobar    ← Prettier (npm run formato lo arregla)
+x-node: &node
+  image: node:22-alpine     # imagen oficial de Node.js 22
+  init: true                # para que Ctrl+C y «docker compose down» paren al momento
+  working_dir: /app
+  entrypoint: ["node", "docker/como-tu.mjs"]   # cada orden se ejecuta con TU usuario (el dueño de esta carpeta)
+  environment:
+    - TZ=Europe/Madrid
+    - npm_config_update_notifier=false
+    - STORYBOOK_DISABLE_TELEMETRY=1           # Storybook no envía estadísticas
+  volumes:
+    - .:/app                # la carpeta de la práctica, dentro del contenedor
+
+services:
+  web:
+    <<: *node
+    ports:
+      - "127.0.0.1:5190:5190"   # http://localhost:5190 → la cartelera (y /compra.html). Solo desde tu ordenador
+    command: ["npm", "run", "dev"]
+  storybook:
+    <<: *node
+    ports:
+      - "127.0.0.1:6006:6006"   # http://localhost:6006 → el catálogo (Storybook). Solo desde tu ordenador
+    command: ["npm", "run", "storybook"]

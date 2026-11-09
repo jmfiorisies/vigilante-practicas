@@ -1,0 +1,364 @@
+{
+  "misiones": [
+    {
+      "id": "1",
+      "titulo": "Investigar la torre del alquimista",
+      "rango": "A",
+      "region": "Bosque Umbrío",
+      "recompensa": 800,
+      "plazas": 1,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "2",
+      "titulo": "Rescatar el nido de arañas",
+      "rango": "A",
+      "region": "Montañas Grises",
+      "recompensa": 950,
+      "plazas": 6,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "3",
+      "titulo": "Investigar la torre del alquimista",
+      "rango": "A",
+      "region": "Montañas Grises",
+      "recompensa": 950,
+      "plazas": 2,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "4",
+      "titulo": "Escoltar la caravana de especias",
+      "rango": "C",
+      "region": "Costa de Sal",
+      "recompensa": 168,
+      "plazas": 4,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "5",
+      "titulo": "Limpiar un grifo salvaje",
+      "rango": "B",
+      "region": "Ciénaga Negra",
+      "recompensa": 375,
+      "plazas": 4,
+      "descripcion": ""
+    },
+    {
+      "id": "6",
+      "titulo": "Escoltar al herrero perdido",
+      "rango": "S",
+      "region": "Montañas Grises",
+      "recompensa": 2850,
+      "plazas": 1,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "7",
+      "titulo": "Recuperar el amuleto robado",
+      "rango": "A",
+      "region": "Ciudad de Arkam",
+      "recompensa": 600,
+      "plazas": 2,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "8",
+      "titulo": "Recuperar la torre del alquimista",
+      "rango": "C",
+      "region": "Costa de Sal",
+      "recompensa": 144,
+      "plazas": 2,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "9",
+      "titulo": "Cazar el nido de arañas",
+      "rango": "E",
+      "region": "Ciénaga Negra",
+      "recompensa": 16,
+      "plazas": 2,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "10",
+      "titulo": "Investigar la torre del alquimista",
+      "rango": "D",
+      "region": "Ciudad de Arkam",
+      "recompensa": 68,
+      "plazas": 1,
+      "descripcion": ""
+    },
+    {
+      "id": "11",
+      "titulo": "Proteger el nido de arañas",
+      "rango": "D",
+      "region": "Montañas Grises",
+      "recompensa": 72,
+      "plazas": 6,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "12",
+      "titulo": "Investigar el molino del norte",
+      "rango": "A",
+      "region": "Ciénaga Negra",
+      "recompensa": 850,
+      "plazas": 5,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "13",
+      "titulo": "Proteger un basilisco joven",
+      "rango": "E",
+      "region": "Ciudad de Arkam",
+      "recompensa": 15,
+      "plazas": 6,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "14",
+      "titulo": "Proteger al mensajero real",
+      "rango": "E",
+      "region": "Montañas Grises",
+      "recompensa": 18,
+      "plazas": 1,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "15",
+      "titulo": "Investigar el nido de arañas",
+      "rango": "D",
+      "region": "Ciénaga Negra",
+      "recompensa": 40,
+      "plazas": 5,
+      "descripcion": ""
+    },
+    {
+      "id": "16",
+      "titulo": "Escoltar el faro abandonado",
+      "rango": "B",
+      "region": "Ciénaga Negra",
+      "recompensa": 325,
+      "plazas": 4,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "17",
+      "titulo": "Explorar los ruidos del pozo",
+      "rango": "C",
+      "region": "Costa de Sal",
+      "recompensa": 180,
+      "plazas": 4,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "18",
+      "titulo": "Escoltar un basilisco joven",
+      "rango": "D",
+      "region": "Ciudad de Arkam",
+      "recompensa": 40,
+      "plazas": 4,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "19",
+      "titulo": "Explorar la caravana de especias",
+      "rango": "C",
+      "region": "Ciudad de Arkam",
+      "recompensa": 216,
+      "plazas": 5,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "20",
+      "titulo": "Investigar un basilisco joven",
+      "rango": "E",
+      "region": "Bosque Umbrío",
+      "recompensa": 12,
+      "plazas": 4,
+      "descripcion": ""
+    },
+    {
+      "id": "21",
+      "titulo": "Investigar la cripta olvidada",
+      "rango": "C",
+      "region": "Montañas Grises",
+      "recompensa": 168,
+      "plazas": 1,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "22",
+      "titulo": "Recuperar la caravana de especias",
+      "rango": "D",
+      "region": "Costa de Sal",
+      "recompensa": 60,
+      "plazas": 2,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "23",
+      "titulo": "Escoltar la cripta olvidada",
+      "rango": "E",
+      "region": "Montañas Grises",
+      "recompensa": 14,
+      "plazas": 1,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "24",
+      "titulo": "Proteger los ruidos del pozo",
+      "rango": "C",
+      "region": "Ciénaga Negra",
+      "recompensa": 144,
+      "plazas": 4,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "25",
+      "titulo": "Escoltar un basilisco joven",
+      "rango": "B",
+      "region": "Costa de Sal",
+      "recompensa": 275,
+      "plazas": 2,
+      "descripcion": ""
+    },
+    {
+      "id": "26",
+      "titulo": "Limpiar al mensajero real",
+      "rango": "B",
+      "region": "Bosque Umbrío",
+      "recompensa": 275,
+      "plazas": 2,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "27",
+      "titulo": "Rescatar el faro abandonado",
+      "rango": "A",
+      "region": "Ciudad de Arkam",
+      "recompensa": 850,
+      "plazas": 5,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "28",
+      "titulo": "Proteger el faro abandonado",
+      "rango": "S",
+      "region": "Ciudad de Arkam",
+      "recompensa": 2550,
+      "plazas": 5,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "29",
+      "titulo": "Limpiar el faro abandonado",
+      "rango": "A",
+      "region": "Costa de Sal",
+      "recompensa": 700,
+      "plazas": 1,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "30",
+      "titulo": "Investigar un basilisco joven",
+      "rango": "S",
+      "region": "Ciénaga Negra",
+      "recompensa": 2550,
+      "plazas": 1,
+      "descripcion": ""
+    },
+    {
+      "id": "31",
+      "titulo": "Investigar el molino del norte",
+      "rango": "C",
+      "region": "Ciudad de Arkam",
+      "recompensa": 216,
+      "plazas": 5,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "32",
+      "titulo": "Escoltar el nido de arañas",
+      "rango": "B",
+      "region": "Bosque Umbrío",
+      "recompensa": 300,
+      "plazas": 6,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "33",
+      "titulo": "Investigar el amuleto robado",
+      "rango": "D",
+      "region": "Bosque Umbrío",
+      "recompensa": 40,
+      "plazas": 4,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "34",
+      "titulo": "Investigar al mensajero real",
+      "rango": "S",
+      "region": "Ciénaga Negra",
+      "recompensa": 2550,
+      "plazas": 1,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "35",
+      "titulo": "Explorar al herrero perdido",
+      "rango": "S",
+      "region": "Costa de Sal",
+      "recompensa": 1950,
+      "plazas": 3,
+      "descripcion": ""
+    },
+    {
+      "id": "36",
+      "titulo": "Limpiar al herrero perdido",
+      "rango": "S",
+      "region": "Costa de Sal",
+      "recompensa": 2550,
+      "plazas": 2,
+      "descripcion": "Pago al volver con pruebas."
+    },
+    {
+      "id": "37",
+      "titulo": "Proteger al mensajero real",
+      "rango": "S",
+      "region": "Ciudad de Arkam",
+      "recompensa": 1500,
+      "plazas": 4,
+      "descripcion": "Se requiere discreción."
+    },
+    {
+      "id": "38",
+      "titulo": "Cazar los ruidos del pozo",
+      "rango": "C",
+      "region": "Montañas Grises",
+      "recompensa": 180,
+      "plazas": 1,
+      "descripcion": "Traed antorchas."
+    },
+    {
+      "id": "39",
+      "titulo": "Cazar la torre del alquimista",
+      "rango": "D",
+      "region": "Ciudad de Arkam",
+      "recompensa": 56,
+      "plazas": 5,
+      "descripcion": "El gremio adelanta la mitad."
+    },
+    {
+      "id": "40",
+      "titulo": "Recuperar un grifo salvaje",
+      "rango": "S",
+      "region": "Montañas Grises",
+      "recompensa": 1500,
+      "plazas": 6,
+      "descripcion": ""
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# B4 · La línea temporal del ataque. Horas en UTC (las de los registros), con segundos: HH:MM:SS
+ip_atacante      =
+usuario          =
+primer_fallo_ssh =
+acceso_ssh       =
+webshell_creada  =
+webshell_usada   =
+# B4 · La puerta trasera: el programa que se queda conectado (ruta completa) y dónde se programa para volver
+proceso          =
+persistencia     =

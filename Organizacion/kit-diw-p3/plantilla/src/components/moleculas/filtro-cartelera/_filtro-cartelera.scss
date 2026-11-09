@@ -1,0 +1,23 @@
+// _filtro-cartelera.scss — 👀 ya está hecho.
+@use "../../../../scss/tokens" as *;
+
+.filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $espacio-md;
+  align-items: end;
+
+  &__campo {
+    display: grid;
+    gap: $espacio-xs;
+  }
+
+  &__dia,
+  &__edad {
+    min-height: 2.75rem;
+    padding: $espacio-sm;
+    font: inherit;
+    border: 1px solid $color-texto-suave;
+    border-radius: $radio;
+  }
+}

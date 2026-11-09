@@ -1,0 +1,34 @@
+// _buscar.scss — El buscador de Mi cita (el código del SMS).
+@use "../tokens" as *;
+
+.buscar {
+  display: grid;
+  gap: $espacio-s;
+  max-width: 30rem;
+
+  &__etiqueta {
+    font-weight: 700;
+  }
+
+  &__ayuda {
+    margin: 0;
+    color: $color-texto-suave;
+  }
+
+  &__campo {
+    padding: $espacio-s;
+    border: 2px solid $color-texto-suave;
+    border-radius: $radio;
+    font: inherit;
+
+    &[aria-invalid="true"] {
+      border-color: $color-peligro;
+    }
+  }
+
+  &__error {
+    margin: 0;
+    color: $color-peligro;
+    font-weight: 700;
+  }
+}

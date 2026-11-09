@@ -1,0 +1,67 @@
+// _formulario-compra.scss — 👀 ya está hecho. El formulario y sus campos.
+@use "../../../../scss/tokens" as *;
+
+.compra-form {
+  display: grid;
+  gap: $espacio-md;
+  padding: $espacio-md;
+  background: $color-superficie;
+  border: 1px solid $color-borde;
+  border-radius: $radio;
+
+  &__titulo {
+    margin: 0;
+  }
+
+  &__ok {
+    margin: 0;
+    padding: $espacio-md;
+    font-weight: 600;
+    color: $color-ok;
+    border: 2px solid $color-ok;
+    border-radius: $radio;
+  }
+}
+
+.campo {
+  display: grid;
+  gap: $espacio-xs;
+
+  &--casilla {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+
+  &__etiqueta {
+    font-weight: 600;
+  }
+
+  &__ayuda {
+    margin: 0;
+    color: $color-texto-suave;
+  }
+
+  &__control {
+    min-height: 2.75rem;
+    padding: $espacio-sm;
+    font: inherit;
+    border: 1px solid $color-texto-suave;
+    border-radius: $radio;
+
+    &[aria-invalid="true"] {
+      border: 2px solid $color-error;
+    }
+  }
+
+  &--casilla &__control {
+    width: 1.5rem;
+    min-height: 1.5rem;
+  }
+
+  &__error {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-weight: 600;
+    color: $color-error;
+  }
+}

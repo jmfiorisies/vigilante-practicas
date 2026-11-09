@@ -1,0 +1,30 @@
+// _boton.scss — El botón del consultorio.
+@use "../tokens" as *;
+
+.boton {
+  display: inline-block;
+  min-height: 2.75rem;
+  padding: $espacio-s $espacio-l;
+  border: none;
+  border-radius: $radio;
+  background: $color-marca;
+  color: $color-fondo;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-marca-oscuro;
+  }
+
+  &--peligro {
+    background: $color-peligro;
+  }
+
+  &--secundario {
+    border-color: $color-marca;
+    background: $color-fondo;
+    color: $color-marca;
+  }
+}

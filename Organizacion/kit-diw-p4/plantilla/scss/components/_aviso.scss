@@ -1,0 +1,12 @@
+// _aviso.scss — El aviso de la campaña de la gripe, arriba del todo en Inicio.
+@use "../tokens" as *;
+
+.aviso {
+  padding: $espacio-s $espacio-m;
+  border-inline-start: 0.375rem solid $color-marca;
+  background: $color-aviso;
+
+  &__texto {
+    margin: 0;
+  }
+}

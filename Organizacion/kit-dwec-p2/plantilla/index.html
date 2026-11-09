@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tablero de tareas</title>
+  <link rel="stylesheet" href="/src/estilos.css">
+</head>
+<body>
+  <!-- ⚠️ La estructura (ids, data-*, clases) la usan los tests: no la cambies. Puedes añadir cosas. -->
+  <main id="app">
+    <h1>Tablero de tareas</h1>
+
+    <form id="form-alta" novalidate>
+      <h2>Nueva tarea</h2>
+      <label>Título <input name="titulo" autocomplete="off"></label>
+      <p class="error" data-error-de="titulo"></p>
+      <label>Prioridad
+        <select name="prioridad">
+          <option value="baja">baja</option>
+          <option value="media" selected>media</option>
+          <option value="alta">alta</option>
+        </select>
+      </label>
+      <label>Fecha límite <input type="date" name="limite"></label>
+      <p class="error" data-error-de="limite"></p>
+      <label>Repetir cada (días) <input type="number" name="cadaDias" min="1"></label>
+      <p class="error" data-error-de="cadaDias"></p>
+      <button type="submit">Añadir</button>
+    </form>
+
+    <p id="estado" hidden></p>
+    <p id="aviso" role="alert" hidden></p>
+
+    <section id="resumen" aria-label="Resumen">
+      <p>Progreso: <strong data-dato="progreso">0 %</strong> · Vencidas: <strong data-dato="vencidas">0</strong></p>
+    </section>
+
+    <section id="columnas">
+      <div class="columna" data-columna="Por hacer">
+        <h2>Por hacer <span class="contador"></span></h2>
+        <div class="lista"></div>
+      </div>
+      <div class="columna" data-columna="En curso">
+        <h2>En curso <span class="contador"></span></h2>
+        <div class="lista"></div>
+      </div>
+      <div class="columna" data-columna="Hecho">
+        <h2>Hecho <span class="contador"></span></h2>
+        <div class="lista"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

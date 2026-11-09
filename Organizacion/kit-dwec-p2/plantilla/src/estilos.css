@@ -1,0 +1,103 @@
+/* estilos.css — dados hechos: la práctica es de JavaScript, no de CSS. */
+:root {
+  --fondo: #f6f7f9;
+  --borde: #d0d7de;
+  --alta: #d93025;
+  --media: #f29900;
+  --baja: #1e8e3e;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--fondo);
+  color: #202124;
+}
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+#form-alta {
+  display: grid;
+  gap: 0.4rem;
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+#form-alta label {
+  display: grid;
+  gap: 0.2rem;
+}
+.error {
+  color: var(--alta);
+  margin: 0;
+  min-height: 1em;
+  font-size: 0.9em;
+}
+[aria-invalid="true"] {
+  border-color: var(--alta);
+  outline: 2px solid var(--alta);
+}
+#aviso {
+  background: #fce8e6;
+  border-left: 4px solid var(--alta);
+  padding: 0.6rem 1rem;
+  margin: 0;
+}
+#estado {
+  background: #e8f0fe;
+  padding: 0.6rem 1rem;
+  margin: 0;
+}
+#columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+.columna {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+.lista {
+  display: grid;
+  gap: 0.5rem;
+}
+.vacia {
+  color: #5f6368;
+  font-style: italic;
+}
+.tarjeta {
+  border: 1px solid var(--borde);
+  border-left: 6px solid var(--media);
+  border-radius: 6px;
+  padding: 0.5rem;
+  background: #fff;
+}
+.tarjeta h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+}
+.tarjeta--alta {
+  border-left-color: var(--alta);
+}
+.tarjeta--baja {
+  border-left-color: var(--baja);
+}
+.tarjeta--vencida {
+  background: #fce8e6;
+}
+.tarjeta__limite {
+  margin: 0 0 0.3rem;
+  font-size: 0.85em;
+}
+.tarjeta button {
+  margin-right: 0.3rem;
+}

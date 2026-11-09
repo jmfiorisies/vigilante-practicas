@@ -1,0 +1,16 @@
+# C8 · Registro de actividades de tratamiento (RGPD, artículo 30) · La Taquilla
+# Rellena lo que va detrás de cada «:». Las listas, con un guion por línea. Revisa el formato con  ./lab.sh plan
+actividad: Venta de entradas                                       # 👀
+responsable: La Taquilla, S.L. · B11000070 · privacidad@taquilla.test   # 👀
+finalidad:                       # ✍️ C8 · para qué se usan los datos de los compradores (una frase)
+base_juridica:                   # ✍️ C8 · una de: consentimiento, contrato, obligacion_legal, interes_vital, mision_publica, interes_legitimo
+interesados:                     # 👀
+  - compradores de entradas
+categorias_datos:                # ✍️ C8 · mira las columnas de /srv/taquilla/compradores/compradores.csv (identificativos, contacto, economicos…)
+categorias_especiales:           # ✍️ C8 · si o no (salud, religión, ideología, biométricos…)
+destinatarios:                   # 👀 a quién se comunican
+  - Agencia Tributaria (las facturas)
+encargados:                      # ✍️ C8 · quién trata los datos POR CUENTA de La Taquilla (piensa en el bloque C)
+transferencias_internacionales: no   # 👀 los servidores de la nube están en España
+plazo_supresion:                 # ✍️ C8 · cuánto se guardan (una frase)
+medidas_seguridad:               # ✍️ C8 · al menos tres medidas, de las que has montado en esta práctica

@@ -1,0 +1,8 @@
+{
+  "name": "dwec-p5-api",
+  "private": true,
+  "description": "La API de prueba del gremio (json-server). Se instala sola con el npm install del proyecto.",
+  "dependencies": {
+    "json-server": "1.0.0-beta.15"
+  }
+}

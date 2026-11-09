@@ -1,0 +1,14 @@
+// main.scss — 👀 junta todo. Cada parte de la web, en su fichero de components/.
+@use "base";
+@use "components/cabecera";
+@use "components/boton";
+@use "components/aviso";
+@use "components/portada";
+@use "components/urgencias";
+@use "components/horario";
+@use "components/llegar";
+@use "components/buscar";
+@use "components/cita";
+@use "components/formulario";
+@use "components/declaracion";
+@use "components/pie";

@@ -1,0 +1,39 @@
+// _cabecera.scss — 👀 ya está hecho.
+@use "../../../../scss/tokens" as *;
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $espacio-sm $espacio-lg;
+  align-items: center;
+  justify-content: space-between;
+  padding: $espacio-md $espacio-lg;
+  color: $color-sobre-cabecera;
+  background: $color-cabecera;
+
+  &__marca {
+    font-family: $fuente-titulos;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $espacio-md;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__enlace {
+    color: inherit;
+
+    &[aria-current="page"] {
+      font-weight: 700;
+      text-decoration-thickness: 3px;
+    }
+  }
+}

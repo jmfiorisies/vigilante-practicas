@@ -1,0 +1,33 @@
+// _etiqueta-edad.scss — 👀 ya está hecho. El bloque etiqueta-edad y un modificador por cada edad.
+@use "../../../../scss/tokens" as *;
+
+.etiqueta-edad {
+  display: inline-block;
+  min-width: 2.5rem;
+  padding: $espacio-xs $espacio-sm;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $color-sobre-marca;
+  text-align: center;
+  border-radius: $radio;
+
+  &--tp {
+    background: $color-edad-tp;
+  }
+
+  &--7 {
+    background: $color-edad-7;
+  }
+
+  &--12 {
+    background: $color-edad-12;
+  }
+
+  &--16 {
+    background: $color-edad-16;
+  }
+
+  &--18 {
+    background: $color-edad-18;
+  }
+}

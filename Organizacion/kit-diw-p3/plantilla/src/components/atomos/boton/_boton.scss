@@ -1,0 +1,54 @@
+// _boton.scss — 👀 EJEMPLO RESUELTO. El átomo Botón: un bloque BEM con tres variantes y un tamaño
+@use "../../../../scss/tokens" as *;
+
+.boton {
+  display: inline-flex;
+  gap: $espacio-sm;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem; // 44 px: se puede tocar con el dedo
+  padding: $espacio-sm $espacio-md;
+  font: inherit;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: $radio;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid $color-marca-fuerte;
+    outline-offset: 2px;
+  }
+
+  &--primario {
+    color: $color-sobre-marca;
+    background: $color-marca;
+
+    &:hover {
+      background: $color-marca-fuerte;
+    }
+  }
+
+  &--secundario {
+    color: $color-marca;
+    background: $color-superficie;
+    border-color: $color-marca;
+  }
+
+  &--fantasma {
+    color: $color-texto;
+    background: transparent;
+    text-decoration: underline;
+  }
+
+  &--grande {
+    padding: $espacio-md $espacio-lg;
+    font-size: 1.125rem;
+  }
+
+  &:disabled {
+    color: $color-sobre-marca;
+    background: $color-apagado;
+    border-color: transparent;
+    cursor: not-allowed;
+  }
+}

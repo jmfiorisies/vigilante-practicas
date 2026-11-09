@@ -1,0 +1,25 @@
+// _urgencias.scss — El recuadro de urgencias, con su punto rojo que late.
+@use "../tokens" as *;
+
+.urgencias {
+  margin-block: $espacio-l;
+  padding: $espacio-m;
+  border: 2px solid $color-peligro;
+  border-radius: $radio;
+  background: $color-peligro-claro;
+
+  &__punto {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: $color-peligro;
+    animation: latido 1s ease-in-out infinite;
+  }
+}
+
+@keyframes latido {
+  50% {
+    transform: scale(1.6);
+  }
+}

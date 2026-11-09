@@ -1,0 +1,2 @@
+# A1 · Las máquinas de la clínica que están encendidas en la red 10.40.0.0/24, una IP por línea.
+#      Sin la tuya (la del auditor) ni la puerta de enlace (la .1, que es Docker).

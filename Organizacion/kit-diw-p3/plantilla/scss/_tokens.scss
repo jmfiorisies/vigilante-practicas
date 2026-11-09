@@ -1,0 +1,58 @@
+// _tokens.scss — 👀 los tokens de Cine Bahía (la guía de estilo). Los colores SOLO se escriben aquí.
+// Nivel 1 · Global: la paleta
+$noche-900: #14213d;
+$noche-700: #26355d;
+$arena-50: #fbf8f1;
+$arena-200: #ebe3cf;
+$gris-600: #4b5563;
+$gris-500: #6b7280;
+$naranja-700: #b34700;
+$naranja-900: #7a3000;
+$verde-700: #2e7d32;
+$azul-700: #1f5fa8;
+$amarillo-500: #f2c230;
+$rojo-700: #b3261e;
+$rojo-900: #7f1d1d;
+$blanco: #fff;
+
+// Nivel 2 · Semántico: es lo que usan los componentes
+$color-texto: $noche-900;
+$color-texto-suave: $gris-600;
+$color-fondo: $arena-50;
+$color-superficie: $blanco;
+$color-borde: $arena-200;
+$color-marca: $naranja-700;
+$color-marca-fuerte: $naranja-900;
+$color-sobre-marca: $blanco;
+$color-cabecera: $noche-900;
+$color-sobre-cabecera: $blanco;
+$color-apagado: $gris-500;
+$color-error: $rojo-700;
+$color-ok: $verde-700;
+
+// Las edades (la calificación por edades de las películas)
+$color-edad-tp: $verde-700;
+$color-edad-7: $azul-700;
+$color-edad-12: $noche-700;
+$color-edad-16: $naranja-900;
+$color-edad-18: $rojo-900;
+
+// Las butacas
+$color-butaca: $blanco;
+$color-butaca-elegida: $amarillo-500;
+$color-butaca-ocupada: $arena-200;
+
+// Espacios, radios y tipografía
+$espacio-xs: 0.25rem;
+$espacio-sm: 0.5rem;
+$espacio-md: 1rem;
+$espacio-lg: 1.5rem;
+$espacio-xl: 2.5rem;
+$radio: 0.5rem;
+$fuente:
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$fuente-titulos: Georgia, "Times New Roman", serif;

@@ -1,0 +1,15 @@
+// _trailer.scss — 👀 ya está hecho.
+@use "../../../../scss/tokens" as *;
+
+.trailer {
+  display: grid;
+  gap: $espacio-sm;
+
+  &__video {
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+    background: $color-cabecera;
+    border-radius: $radio;
+  }
+}

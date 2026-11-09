@@ -1,0 +1,53 @@
+// _tarjeta-pelicula.scss — 👀 ya está hecho. El organismo Tarjeta de película.
+@use "../../../../scss/tokens" as *;
+
+.tarjeta-pelicula {
+  display: grid;
+  gap: $espacio-sm;
+  align-content: start;
+  height: 100%;
+  padding: $espacio-md;
+  background: $color-superficie;
+  border: 1px solid $color-borde;
+  border-radius: $radio;
+
+  &__poster {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $radio;
+  }
+
+  &__titulo {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  &__edad {
+    justify-self: start;
+  }
+
+  &__datos,
+  &__precio,
+  &__aviso {
+    margin: 0;
+  }
+
+  &__datos,
+  &__aviso {
+    color: $color-texto-suave;
+  }
+
+  &__precio {
+    font-weight: 700;
+  }
+
+  &__sesiones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $espacio-sm;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

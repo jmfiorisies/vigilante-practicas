@@ -1,0 +1,47 @@
+// _horario.scss — El horario de Inicio: un acordeón con una tabla por servicio.
+@use "../tokens" as *;
+
+.horario {
+  &__titulo {
+    margin: 0;
+    border-bottom: 1px solid $color-borde;
+  }
+
+  &__boton {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: $espacio-m $espacio-s;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-weight: 700;
+    text-align: start;
+    cursor: pointer;
+
+    &::after {
+      content: "+";
+    }
+  }
+
+  &__panel {
+    padding-block: $espacio-s;
+  }
+
+  &__tabla {
+    width: 40rem;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: $espacio-xs $espacio-s;
+      border: 1px solid $color-borde;
+      text-align: start;
+    }
+  }
+
+  &__celda--cerrado {
+    background: $color-cerrado;
+  }
+}

@@ -1,0 +1,32 @@
+# compose.yaml · el entorno de trabajo: la página (Vite + React) y la API del gremio (json-server).
+# En tu ordenador no se instala nada.
+#
+#   docker compose run --rm web npm install   ← la primera vez (con internet)
+#   docker compose run --rm web npm test      ← las pruebas (no necesitan la API: usan una de mentira)
+#   docker compose up                         ← la página en http://localhost:5173 y la API en http://localhost:3000
+services:
+  web:
+    image: node:22-alpine     # imagen oficial de Node.js 22
+    init: true                # para que Ctrl+C y «docker compose down» paren al momento
+    working_dir: /app
+    entrypoint: ["node", "docker/como-tu.mjs"]   # cada orden se ejecuta con TU usuario (el dueño de esta carpeta)
+    environment:
+      - TZ=Europe/Madrid      # las fechas, en hora de España
+      - npm_config_update_notifier=false   # sin avisos de «actualiza npm»
+    volumes:
+      - .:/app                # tu carpeta del proyecto, dentro del contenedor
+    ports:
+      - "5173:5173"           # http://localhost:5173 → la página
+    command: ["npm", "run", "dev"]
+  api:
+    image: node:22-alpine
+    init: true
+    working_dir: /app
+    entrypoint: ["node", "docker/como-tu.mjs"]
+    environment:
+      - npm_config_update_notifier=false
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"           # http://localhost:3000/misiones → la API (json-server lee y ESCRIBE api/db.json)
+    command: ["npm", "run", "api"]

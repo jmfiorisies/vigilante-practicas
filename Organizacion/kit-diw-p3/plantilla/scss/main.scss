@@ -1,0 +1,22 @@
+// main.scss — 👀 junta los estilos. Cada componente trae su .scss en SU carpeta (Atomic Design).
+@use "base";
+
+// Átomos
+@use "../src/components/atomos/boton/boton";
+@use "../src/components/atomos/etiqueta-edad/etiqueta-edad";
+
+// Moléculas
+@use "../src/components/moleculas/sesion/sesion";
+@use "../src/components/moleculas/trailer/trailer";
+@use "../src/components/moleculas/filtro-cartelera/filtro-cartelera";
+
+// Organismos
+@use "../src/components/organismos/tarjeta-pelicula/tarjeta-pelicula";
+@use "../src/components/organismos/cabecera/cabecera";
+@use "../src/components/organismos/estreno/estreno";
+@use "../src/components/organismos/selector-butacas/selector-butacas";
+@use "../src/components/organismos/formulario-compra/formulario-compra";
+
+// Plantillas y páginas
+@use "../src/components/plantillas/cartelera/cartelera";
+@use "../src/components/paginas/compra/compra";

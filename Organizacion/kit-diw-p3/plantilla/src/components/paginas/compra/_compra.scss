@@ -1,0 +1,17 @@
+// _compra.scss — 👀 ya está hecho.
+@use "../../../../scss/tokens" as *;
+
+.compra {
+  &__principal {
+    display: grid;
+    gap: $espacio-lg;
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: $espacio-lg $espacio-md;
+  }
+
+  &__titulo,
+  &__resumen {
+    margin: 0;
+  }
+}

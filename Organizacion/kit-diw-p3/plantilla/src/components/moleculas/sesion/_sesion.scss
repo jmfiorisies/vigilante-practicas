@@ -1,0 +1,41 @@
+// _sesion.scss — 👀 ya está hecho. La molécula Sesión.
+@use "../../../../scss/tokens" as *;
+
+.sesion {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: $espacio-xs $espacio-sm;
+  align-items: baseline;
+  min-height: 2.75rem;
+  padding: $espacio-sm $espacio-md;
+  color: $color-texto;
+  text-decoration: none;
+  border: 2px solid $color-marca;
+  border-radius: $radio;
+
+  &:hover {
+    background: $color-borde;
+  }
+
+  &__dia {
+    font-weight: 600;
+  }
+
+  &__hora {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__sala {
+    color: $color-texto-suave;
+  }
+
+  &__formato {
+    padding: 0 $espacio-xs;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $color-sobre-marca;
+    background: $color-marca;
+    border-radius: $espacio-xs;
+  }
+}

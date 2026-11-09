@@ -1,0 +1,66 @@
+// _base.scss — 👀 lo común a todas las páginas
+@use "tokens" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $fuente;
+  font-size: 1.125rem;
+  color: $color-texto;
+  background: $color-fondo;
+  line-height: 1.5;
+}
+
+// Lo que lleva el atributo hidden NO se ve, aunque su clase diga display: flex o grid
+[hidden] {
+  display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+h1,
+h2,
+h3 {
+  font-family: $fuente-titulos;
+  line-height: 1.2;
+}
+
+a {
+  color: $color-marca;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// La agencia: «el recuadro del foco queda feo»
+*:focus {
+  outline: none;
+}
+
+.saltar {
+  position: absolute;
+  inset-inline-start: $espacio-m;
+  top: -10rem;
+  padding: $espacio-s $espacio-m;
+  background: $color-marca-oscuro;
+  color: $color-fondo;
+
+  &:focus {
+    top: $espacio-s;
+  }
+}
+
+.contenido {
+  max-width: $ancho-max;
+  margin-inline: auto;
+  padding: $espacio-m;
+}
+
+.texto-suave {
+  color: $color-texto-suave;
+}

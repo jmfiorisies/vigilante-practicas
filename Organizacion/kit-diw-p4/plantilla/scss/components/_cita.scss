@@ -1,0 +1,43 @@
+// _cita.scss — La tarjeta de la cita en Mi cita, con sus acciones.
+@use "../tokens" as *;
+
+.cita {
+  margin-block: $espacio-l;
+  padding: $espacio-m;
+  border: 1px solid $color-borde;
+  border-radius: $radio;
+  background: $color-fondo-suave;
+
+  &__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $espacio-s;
+    align-items: center;
+  }
+
+  &__icono {
+    display: inline-grid;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    place-items: center;
+    border: 2px solid $color-marca;
+    border-radius: $radio;
+    background: $color-fondo;
+    color: $color-marca;
+    cursor: pointer;
+  }
+
+  &__anular {
+    margin-inline-start: auto;
+    opacity: 0;
+  }
+
+  &:hover &__anular {
+    opacity: 1;
+  }
+
+  &__mensaje {
+    font-weight: 700;
+  }
+}

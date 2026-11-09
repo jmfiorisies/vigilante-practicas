@@ -1,0 +1,5 @@
+# A2 · Inventario de servicios: una línea por cada puerto ABIERTO de cada máquina de hosts.txt.
+#      Formato:  IP   puerto/protocolo   servicio   versión
+#      Que no se te escape nada: un servicio puede estar en un puerto que no es el de siempre.
+# IP          puerto    servicio  versión
+10.40.0.10    22/tcp    ssh       OpenSSH 10.0p2 Debian 7+deb13u4      (👀 ejemplo resuelto)

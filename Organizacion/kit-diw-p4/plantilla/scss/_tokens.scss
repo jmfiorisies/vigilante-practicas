@@ -1,0 +1,22 @@
+// _tokens.scss — Los colores, las fuentes y los espacios del Consultorio Los Alcatraces. Solo aquí se escriben colores.
+$fuente: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+$fuente-titulos: $fuente;
+$color-marca: #0b6e4f; // verde del consultorio
+$color-marca-oscuro: #074d37;
+$color-marca-claro: #e3f2ec;
+$color-texto: #1f2933;
+$color-texto-suave: #9aa5b1;
+$color-fondo: #fff;
+$color-fondo-suave: #f5f7fa;
+$color-borde: #cbd2d9;
+$color-peligro: #b42318;
+$color-peligro-claro: #fef3f2;
+$color-aviso: #fff4ce;
+$color-cerrado: #f6c1bc; // rojo: el turno está cerrado
+$espacio-xs: 0.25rem;
+$espacio-s: 0.5rem;
+$espacio-m: 1rem;
+$espacio-l: 1.5rem;
+$espacio-xl: 2.5rem;
+$radio: 0.5rem;
+$ancho-max: 64rem;

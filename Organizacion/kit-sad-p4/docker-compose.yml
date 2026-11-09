@@ -1,0 +1,79 @@
+# Práctica 4 de SAD · Clínica dental Sonríe. Se maneja con ./lab.sh (./lab.sh ayuda).
+#
+#   «Internet» 198.18.40.0/24    Red de la clínica 10.40.0.0/24                              Gestión 10.40.9.0/24
+#   atacante .66 ──── web .10 ──── web .10 · archivo .20 · recepcion .30 · auditor .50     siem .40 (Wazuh)
+#                                  (el SIEM lee los registros de la web, no la red)
+#
+# Lo que editas está en tu carpeta: informe/ (bloque A), forense/ y siem/reglas/ (bloque B).
+name: sad-p4
+
+x-maquina: &maquina
+  build: .
+  image: sad-p4
+  cap_add: [NET_ADMIN, NET_RAW]
+  tty: true
+  stdin_open: true
+
+services:
+  auditor:
+    <<: *maquina
+    container_name: sad-p4-auditor
+    hostname: auditor
+    environment: { ROL: auditor }
+    volumes:
+      - ./informe:/lab            # carpeta entera (no ficheros sueltos: los editores los sustituyen y Docker no lo ve)
+    networks: { clinica: { ipv4_address: 10.40.0.50 } }
+
+  web:
+    <<: *maquina
+    container_name: sad-p4-web
+    hostname: web
+    environment: { ROL: web }
+    cap_add: [NET_ADMIN, NET_RAW, SYS_PTRACE]   # SYS_PTRACE: que root vea de quién es cada conexión (ss -p, /proc/PID/exe)
+    volumes:
+      - ./forense:/evidencias     # donde guardas las evidencias (bloque B)
+      - registros-web:/var/log    # los registros, que también lee el SIEM
+    networks:
+      internet: { ipv4_address: 198.18.40.10 }
+      clinica: { ipv4_address: 10.40.0.10 }
+
+  archivo:
+    <<: *maquina
+    container_name: sad-p4-archivo
+    hostname: archivo
+    environment: { ROL: archivo }
+    networks: { clinica: { ipv4_address: 10.40.0.20 } }
+
+  recepcion:
+    <<: *maquina
+    container_name: sad-p4-recepcion
+    hostname: recepcion
+    environment: { ROL: recepcion }
+    networks: { clinica: { ipv4_address: 10.40.0.30 } }
+
+  atacante:
+    <<: *maquina
+    container_name: sad-p4-atacante
+    hostname: atacante
+    environment: { ROL: atacante }
+    networks: { internet: { ipv4_address: 198.18.40.66 } }
+
+  # El SIEM: Wazuh (solo el «manager»). Tus reglas, en siem/reglas/local_rules.xml (./lab.sh siem para aplicarlas)
+  siem:
+    build: { context: ., dockerfile: Dockerfile.siem }
+    image: sad-p4-siem
+    container_name: sad-p4-siem
+    hostname: siem
+    volumes:
+      - ./siem/reglas:/var/ossec/lab-reglas
+      - registros-web:/logs/web:ro
+    networks: { gestion: { ipv4_address: 10.40.9.40 } }
+    depends_on: [web]
+
+volumes:
+  registros-web:
+
+networks:
+  internet: { ipam: { config: [{ subnet: 198.18.40.0/24, gateway: 198.18.40.1 }] } }
+  clinica: { internal: true, ipam: { config: [{ subnet: 10.40.0.0/24, gateway: 10.40.0.1 }] } }
+  gestion: { internal: true, ipam: { config: [{ subnet: 10.40.9.0/24, gateway: 10.40.9.1 }] } }

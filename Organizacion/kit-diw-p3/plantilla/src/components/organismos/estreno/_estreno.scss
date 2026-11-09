@@ -1,0 +1,24 @@
+// _estreno.scss — 👀 ya está hecho.
+@use "../../../../scss/tokens" as *;
+
+.estreno {
+  display: grid;
+  gap: $espacio-sm;
+  justify-items: start;
+  padding: $espacio-lg;
+  background: $color-superficie;
+  border-left: 6px solid $color-marca;
+  border-radius: $radio;
+
+  &__antetitulo {
+    margin: 0;
+    font-weight: 700;
+    color: $color-marca;
+    text-transform: uppercase;
+  }
+
+  &__titulo,
+  &__texto {
+    margin: 0;
+  }
+}

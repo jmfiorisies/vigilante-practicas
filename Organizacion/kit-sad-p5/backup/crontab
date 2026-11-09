@@ -1,0 +1,3 @@
+# ✍️ C6 · Programa la copia: cada 6 horas, a y cuarto (00:15, 06:15, 12:15 y 18:15).
+# Formato:  minuto hora día-del-mes mes día-de-la-semana  orden
+# (./lab.sh programar lo instala en la máquina datos)

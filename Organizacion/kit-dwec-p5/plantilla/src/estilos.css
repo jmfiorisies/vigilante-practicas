@@ -1,0 +1,173 @@
+/* estilos.css — El aspecto del tablón: madera, pergamino y tinta. No hace falta tocarlo (puedes AÑADIR, no quitar). */
+:root {
+  --madera: #5b3a1e;
+  --madera-clara: #8a5a2b;
+  --pergamino: #f6ecd4;
+  --tinta: #2b1d0e;
+  --oro: #c8901a;
+  --rojo: #a12b1f;
+  --verde: #2f6b2f;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--tinta);
+  background: #3b2614;
+}
+body {
+  margin: 0;
+}
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--pergamino);
+}
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--madera);
+  color: var(--pergamino);
+}
+.cabecera h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.cabecera nav {
+  display: flex;
+  gap: 0.8rem;
+}
+.cabecera a {
+  color: var(--pergamino);
+}
+.cabecera a.active {
+  color: var(--oro);
+  font-weight: bold;
+}
+.contador-grupo {
+  margin-left: auto;
+  font-weight: bold;
+}
+.sesion {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+main {
+  padding: 1.2rem;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--madera);
+  background: #fff8e6;
+  border-radius: 6px;
+  padding: 0.25rem 0.7rem;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.formulario {
+  display: grid;
+  gap: 0.3rem;
+  max-width: 460px;
+}
+.formulario input,
+.formulario select,
+.formulario textarea {
+  font: inherit;
+  padding: 0.3rem;
+}
+.formulario button {
+  margin-top: 0.6rem;
+  justify-self: start;
+}
+[aria-invalid="true"] {
+  border: 2px solid var(--rojo);
+}
+.error {
+  color: var(--rojo);
+  margin: 0;
+}
+.aviso-rango {
+  color: var(--oro);
+  font-weight: bold;
+  margin: 0;
+}
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.7rem;
+}
+.tarjeta-mision {
+  position: relative;
+  background: #fffaf0;
+  border: 1px solid var(--madera-clara);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  box-shadow: 0 2px 4px #0002;
+}
+.tarjeta-mision.elegida {
+  outline: 3px solid var(--oro);
+}
+.tarjeta-mision h3 {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+.datos {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+}
+.rango {
+  display: inline-block;
+  min-width: 1.6rem;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  background: var(--madera-clara);
+}
+.rango--A,
+.rango--S {
+  background: var(--rojo);
+}
+.rango--B,
+.rango--C {
+  background: var(--oro);
+}
+.detalle-mision,
+.grupo {
+  background: #fffaf0;
+  border: 1px solid var(--madera-clara);
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 640px;
+}
+.grupo li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.3rem 0;
+}
+.grupo li span {
+  flex: 1;
+}
+.escaparate section {
+  margin-bottom: 2rem;
+}
+.sin-hacer {
+  color: var(--rojo);
+  font-style: italic;
+}
+.revienta {
+  color: var(--rojo);
+  white-space: pre-wrap;
+}

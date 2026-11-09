@@ -1,0 +1,144 @@
+# Práctica 5 de SAD · La Taquilla (venta de entradas para conciertos). Se maneja con ./lab.sh (./lab.sh ayuda).
+#
+#   Oficina 10.70.0.0/24             «Internet» 198.18.70.0/24                        Servicios 10.70.1.0/24
+#   taquilla .20 ─┐                                   ┌─ lb1 .11 ─┐
+#   kiosko   .30 ─┴─ proxy .2 ──── calle .80 ─────────┤  IP .100  ├──── venta1 .21 · venta2 .22 · venta3 .23
+#                                       nube .50      └─ lb2 .12 ─┘     datos .30 (+ disco externo) · nuevo .40
+#
+# Lo que editas está en tu carpeta: squid/ y haproxy/ (bloque A), keepalived/ (bloque B),
+# backup/, nube/ y plan/ (bloque C) e informe/.
+name: sad-p5
+
+x-maquina: &maquina
+  build: .
+  image: sad-p5
+  cap_add: [NET_ADMIN, NET_RAW]
+  init: true                      # recoge los procesos que terminan (si no, quedan «zombis»)
+  tty: true
+  stdin_open: true
+
+x-nombres: &nombres
+  - "proveedor.test:198.18.70.80"
+  - "cartelera.test:198.18.70.80"
+  - "reventa.test:198.18.70.80"
+  - "www.reventa.test:198.18.70.80"
+  - "apuestas.test:198.18.70.80"
+  - "entradas.taquilla.test:198.18.70.100"
+
+services:
+  proxy:
+    <<: *maquina
+    container_name: sad-p5-proxy
+    hostname: proxy
+    environment: { ROL: proxy }
+    extra_hosts: *nombres
+    volumes:
+      - ./squid:/etc/squid/lab          # carpetas enteras (no ficheros sueltos: los editores los sustituyen y Docker no lo ve)
+      - ./informe:/lab
+    networks:
+      oficina: { ipv4_address: 10.70.0.2 }
+      internet: { ipv4_address: 198.18.70.2 }
+
+  taquilla:
+    <<: *maquina
+    container_name: sad-p5-taquilla
+    hostname: taquilla
+    environment: { ROL: taquilla }
+    networks: { oficina: { ipv4_address: 10.70.0.20 } }
+
+  kiosko:
+    <<: *maquina
+    container_name: sad-p5-kiosko
+    hostname: kiosko
+    environment: { ROL: kiosko }
+    networks: { oficina: { ipv4_address: 10.70.0.30 } }
+
+  calle:
+    <<: *maquina
+    container_name: sad-p5-calle
+    hostname: calle
+    environment: { ROL: calle }
+    extra_hosts: *nombres
+    networks: { internet: { ipv4_address: 198.18.70.80 } }
+
+  lb1:
+    <<: *maquina
+    container_name: sad-p5-lb1
+    hostname: lb1
+    environment: { ROL: lb1 }
+    volumes: [./haproxy:/etc/haproxy/lab, ./keepalived:/etc/keepalived/lab]
+    networks:
+      internet: { ipv4_address: 198.18.70.11 }
+      servicios: { ipv4_address: 10.70.1.11 }
+
+  lb2:
+    <<: *maquina
+    container_name: sad-p5-lb2
+    hostname: lb2
+    environment: { ROL: lb2 }
+    volumes: [./haproxy:/etc/haproxy/lab, ./keepalived:/etc/keepalived/lab]
+    networks:
+      internet: { ipv4_address: 198.18.70.12 }
+      servicios: { ipv4_address: 10.70.1.12 }
+
+  venta1:
+    <<: *maquina
+    container_name: sad-p5-venta1
+    hostname: venta1
+    environment: { ROL: venta1 }
+    networks: { servicios: { ipv4_address: 10.70.1.21 } }
+  venta2:
+    <<: *maquina
+    container_name: sad-p5-venta2
+    hostname: venta2
+    environment: { ROL: venta2 }
+    networks: { servicios: { ipv4_address: 10.70.1.22 } }
+  venta3:
+    <<: *maquina
+    container_name: sad-p5-venta3
+    hostname: venta3
+    environment: { ROL: venta3 }
+    networks: { servicios: { ipv4_address: 10.70.1.23 } }
+
+  datos:
+    <<: *maquina
+    container_name: sad-p5-datos
+    hostname: datos
+    environment: { ROL: datos }
+    volumes:
+      - ./backup:/lab
+      - usb:/mnt/usb                   # el «disco externo» donde va la copia local
+      - ./plan:/plan
+    networks:
+      servicios: { ipv4_address: 10.70.1.30 }
+      internet: { ipv4_address: 198.18.70.30 }
+
+  nuevo:
+    <<: *maquina
+    container_name: sad-p5-nuevo
+    hostname: nuevo
+    environment: { ROL: nuevo }
+    volumes: [./backup:/lab]
+    networks:
+      servicios: { ipv4_address: 10.70.1.40 }
+      internet: { ipv4_address: 198.18.70.40 }
+
+  nube:
+    <<: *maquina
+    container_name: sad-p5-nube
+    hostname: nube
+    environment: { ROL: nube }
+    volumes:
+      - ./nube:/etc/nube
+      - nube:/datos
+    networks:
+      internet: { ipv4_address: 198.18.70.50 }
+
+volumes:
+  usb:
+  nube:
+
+networks:
+  oficina:   { internal: true, ipam: { config: [{ subnet: 10.70.0.0/24, gateway: 10.70.0.1 }] } }
+  internet:  { internal: true, ipam: { config: [{ subnet: 198.18.70.0/24, gateway: 198.18.70.1, ip_range: 198.18.70.192/27 }] } }
+  servicios: { internal: true, ipam: { config: [{ subnet: 10.70.1.0/24, gateway: 10.70.1.1 }] } }

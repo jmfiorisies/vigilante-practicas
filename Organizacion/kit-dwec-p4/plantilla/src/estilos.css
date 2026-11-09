@@ -1,0 +1,250 @@
+/* estilos.css — El aspecto: pergamino y tinta. Ya está hecho (puedes cambiarlo, pero no quites clases). */
+:root {
+  --tinta: #3b2416;
+  --pergamino: #fbf3e0;
+  --borde: #c9a96e;
+  --rojo: #9b1c1c;
+  --oro: #b8860b;
+  --verde: #2f6b2f;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--tinta);
+}
+body {
+  margin: 0;
+  background: #e9dcc0;
+}
+.cabecera {
+  background: linear-gradient(120deg, #3b2416, #5a3a22);
+  color: #fbf3e0;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.cabecera h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+.cabecera button {
+  font: inherit;
+  background: transparent;
+  color: inherit;
+  border: 1px solid #c9a96e88;
+  border-radius: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  margin-left: 0.3rem;
+}
+.cabecera button.activa {
+  background: #c9a96e;
+  color: var(--tinta);
+}
+main {
+  padding: 1.25rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+h2 {
+  color: var(--rojo);
+}
+.ficha {
+  background: var(--pergamino);
+  border: 2px solid var(--borde);
+  border-radius: 0.6rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px #0002;
+}
+.ficha header h2 {
+  margin: 0;
+}
+.ficha header p {
+  margin: 0.2rem 0 0.8rem;
+  font-style: italic;
+}
+.atributos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.6rem;
+}
+.atributo {
+  text-align: center;
+  border: 1px solid var(--borde);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  background: #fffaf0;
+}
+.atributo h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.atributo .valor {
+  margin: 0.2rem 0 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.atributo .mod {
+  margin: 0;
+  display: inline-block;
+  border: 1px solid var(--borde);
+  border-radius: 1rem;
+  padding: 0 0.6rem;
+}
+.pv {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--rojo);
+}
+.rasgos h3 {
+  margin: 0.6rem 0 0.2rem;
+  font-size: 1rem;
+}
+.rasgos ul {
+  margin: 0;
+}
+.vacio {
+  color: #8a7355;
+  font-style: italic;
+  margin: 0;
+}
+.clases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.6rem;
+  margin: 0.5rem 0 1rem;
+}
+.tarjeta-clase {
+  background: var(--pergamino);
+  border: 2px solid var(--borde);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+}
+.tarjeta-clase.elegida {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 2px #9b1c1c55;
+}
+.tarjeta-clase h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+}
+.etiqueta {
+  display: inline-block;
+  font-size: 0.78rem;
+  border-radius: 1rem;
+  padding: 0 0.55rem;
+  margin-right: 0.3rem;
+  background: #e7d7b4;
+}
+.etiqueta--dado {
+  background: #3b2416;
+  color: #fbf3e0;
+}
+.etiqueta--ok {
+  background: var(--verde);
+  color: white;
+}
+.tarjeta-clase button,
+.opciones > button,
+.dado button {
+  font: inherit;
+  background: var(--rojo);
+  color: white;
+  border: none;
+  border-radius: 0.35rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.forja {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .forja {
+    grid-template-columns: 1fr;
+  }
+}
+.opciones {
+  background: var(--pergamino);
+  border: 2px solid var(--borde);
+  border-radius: 0.6rem;
+  padding: 1rem;
+}
+.opciones label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.opciones input,
+.opciones select {
+  font: inherit;
+  padding: 0.25rem 0.4rem;
+}
+.puntos {
+  font-weight: 700;
+}
+.control-atributo {
+  display: grid;
+  grid-template-columns: 8rem 2rem 2.5rem 2rem;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.2rem 0;
+}
+.control-atributo button {
+  font: inherit;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--rojo);
+  background: white;
+  color: var(--rojo);
+  cursor: pointer;
+}
+.control-atributo output {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.falta {
+  color: #8a5a00;
+}
+.listo {
+  color: var(--verde);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.dado {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.dado output {
+  font-size: 1.8rem;
+  font-weight: 700;
+  min-width: 2.5rem;
+}
+.critico {
+  color: var(--oro);
+  font-weight: 700;
+}
+.sin-hacer {
+  border: 2px dashed var(--borde);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  color: #8a7355;
+}
+.revienta {
+  background: #fee2e2;
+  color: var(--rojo);
+  padding: 0.6rem;
+  white-space: pre-wrap;
+}

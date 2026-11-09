@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio · Consultorio Los Alcatraces</title>
+    <script type="module" src="/src/inicio.js"></script>
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <header class="cabecera">
+      <a class="cabecera__marca" href="/"
+        ><img src="/img/logo.svg" alt="" width="40" height="40" /> Consultorio Los Alcatraces</a
+      >
+      <nav class="cabecera__menu" aria-label="Principal">
+        <ul class="cabecera__lista">
+          <li><a class="cabecera__enlace" href="/" aria-current="page">Inicio</a></li>
+          <li><a class="cabecera__enlace" href="/cita.html">Pedir cita</a></li>
+          <li><a class="cabecera__enlace" href="/mi-cita.html">Mi cita</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="contenido" id="contenido" tabindex="-1">
+      <section class="portada">
+        <img
+          class="portada__img"
+          src="/img/portada.jpg"
+          alt="La entrada del consultorio, con su toldo verde y una rampa junto a la escalera"
+          loading="lazy"
+        />
+        <div class="portada__texto">
+          <h1>Consultorio Los Alcatraces</h1>
+          <p>Tu centro de salud del barrio de la Caleta. Pide cita en línea, a cualquier hora.</p>
+          <a class="boton" href="/cita.html">Pedir cita</a>
+        </div>
+      </section>
+      <section class="urgencias">
+        <h2><span class="urgencias__punto" aria-hidden="true"></span> Urgencias</h2>
+        <p>
+          De 15:00 a 8:00 y los fines de semana, en el Punto de Atención Continuada de la avenida del Puerto, 3. Si es
+          grave, llama al 112.
+        </p>
+      </section>
+      <section class="horario" aria-labelledby="horario-titulo">
+        <h2 id="horario-titulo">Horario</h2>
+        <div class="horario__grupo">
+          <div class="horario__boton">Medicina de familia</div>
+          <div class="horario__panel" hidden>
+            <div class="horario__caja">
+              <table class="horario__tabla">
+                <caption class="texto-suave">
+                  Medicina de familia: horario de consulta
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Día</th>
+                    <th scope="col">Mañana</th>
+                    <th scope="col">Tarde</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Lunes</th>
+                    <td>8:00–14:00</td>
+                    <td>16:00–19:00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Martes</th>
+                    <td>8:00–14:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Miércoles</th>
+                    <td>8:00–14:00</td>
+                    <td>16:00–19:00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jueves</th>
+                    <td>8:00–14:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Viernes</th>
+                    <td>8:00–14:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="horario__grupo">
+          <div class="horario__boton">Enfermería</div>
+          <div class="horario__panel" hidden>
+            <div class="horario__caja">
+              <table class="horario__tabla">
+                <caption class="texto-suave">
+                  Enfermería: horario de consulta
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Día</th>
+                    <th scope="col">Mañana</th>
+                    <th scope="col">Tarde</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Lunes</th>
+                    <td>8:00–13:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Martes</th>
+                    <td>8:00–13:00</td>
+                    <td>16:00–18:00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Miércoles</th>
+                    <td>8:00–13:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jueves</th>
+                    <td>8:00–13:00</td>
+                    <td>16:00–18:00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Viernes</th>
+                    <td>8:00–13:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="horario__grupo">
+          <div class="horario__boton">Pediatría</div>
+          <div class="horario__panel" hidden>
+            <div class="horario__caja">
+              <table class="horario__tabla">
+                <caption class="texto-suave">
+                  Pediatría: horario de consulta
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Día</th>
+                    <th scope="col">Mañana</th>
+                    <th scope="col">Tarde</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Lunes</th>
+                    <td>9:00–13:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Martes</th>
+                    <td class="horario__celda--cerrado"></td>
+                    <td>16:00–19:00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Miércoles</th>
+                    <td>9:00–13:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jueves</th>
+                    <td class="horario__celda--cerrado"></td>
+                    <td>16:00–19:00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Viernes</th>
+                    <td>9:00–13:00</td>
+                    <td class="horario__celda--cerrado"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="llegar">
+        <h2>Cómo llegar</h2>
+        <img class="llegar__mapa" src="/img/mapa.png" width="640" height="360" loading="lazy" />
+        <p>Calle de la Marea, 12. Autobús 7, parada «Plaza de los Alcatraces». Hay rampa y ascensor.</p>
+        <p>Para pedir cita en línea, <a href="/cita.html">pulse aquí</a>, o llame al 956 000 111, de 8:00 a 14:00.</p>
+      </section>
+    </main>
+    <footer class="pie">
+      <p class="pie__texto">Consultorio Los Alcatraces · Calle de la Marea, 12 · Cádiz · 956 000 111</p>
+      <p class="pie__texto"><a href="/accesibilidad.html">Declaración de accesibilidad</a></p>
+    </footer>
+  </body>
+</html>

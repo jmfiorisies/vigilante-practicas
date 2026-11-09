@@ -1,0 +1,2 @@
+# ✍️ C2 · Lo que NO se copia, un patrón por línea (lo lee restic con --exclude-file):
+#   las sesiones temporales de la tienda (la carpeta tmp de /srv/taquilla) y las entradas a medio subir (*.part)

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Declaración de accesibilidad · Consultorio Los Alcatraces</title>
+    <script type="module" src="/src/accesibilidad.js"></script>
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <header class="cabecera">
+      <a class="cabecera__marca" href="/"
+        ><img src="/img/logo.svg" alt="" width="40" height="40" /> Consultorio Los Alcatraces</a
+      >
+      <nav class="cabecera__menu" aria-label="Principal">
+        <ul class="cabecera__lista">
+          <li><a class="cabecera__enlace" href="/">Inicio</a></li>
+          <li><a class="cabecera__enlace" href="/cita.html">Pedir cita</a></li>
+          <li><a class="cabecera__enlace" href="/mi-cita.html">Mi cita</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="contenido declaracion" id="contenido" tabindex="-1"></main>
+    <footer class="pie">
+      <p class="pie__texto">Consultorio Los Alcatraces · Calle de la Marea, 12 · Cádiz · 956 000 111</p>
+      <p class="pie__texto"><a href="/accesibilidad.html">Declaración de accesibilidad</a></p>
+    </footer>
+  </body>
+</html>

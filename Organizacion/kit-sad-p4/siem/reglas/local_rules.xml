@@ -1,0 +1,24 @@
+<!--
+  Reglas propias del SIEM de la clínica (Wazuh). SAD · P4, bloque B.
+  Nuestras reglas van del 100000 al 120000. Después de editar:  ./lab.sh siem   (comprueba y aplica)
+  Para probar una línea de registro contra las reglas:              ./lab.sh logtest
+-->
+<group name="local,clinica,">
+
+  <!-- 👀 Ejemplo resuelto: alguien intenta entrar como root por SSH (hija de la 5760, con el usuario exacto). -->
+  <rule id="100001" level="10">
+    <if_sid>5760</if_sid>
+    <user>^root$</user>
+    <description>Clínica: intento de entrar como root por SSH</description>
+  </rule>
+
+  <!-- B6 · Regla 100020, nivel 12: «Clínica: órdenes ejecutadas por una webshell».
+       Salta con las peticiones del ataque a la webshell que ejecuta órdenes (míralas en el registro de la web)
+       y NO con una visita normal a un PHP de la clínica. -->
+
+
+  <!-- B6 · Regla 100021, nivel 15: «Clínica: webshell usada desde una IP que antes hizo fuerza bruta».
+       Correlación: salta con la 100020 SOLO si en los últimos 5 minutos la MISMA IP hizo fuerza bruta contra SSH. -->
+
+
+</group>

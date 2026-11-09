@@ -1,0 +1,12 @@
+// _llegar.scss — 👀 «Cómo llegar», con el mapa.
+@use "../tokens" as *;
+
+.llegar {
+  margin-block: $espacio-l;
+
+  &__mapa {
+    display: block;
+    border: 1px solid $color-borde;
+    border-radius: $radio;
+  }
+}
