@@ -1,0 +1,32 @@
+{
+  "A1": [
+    "1-atributo"
+  ],
+  "A2": [
+    "2-bloque-atributos"
+  ],
+  "A3": [
+    "3-lista-rasgos"
+  ],
+  "A4": [
+    "4-tarjeta-clase"
+  ],
+  "A5": [
+    "5-ficha"
+  ],
+  "B1": [
+    "1-reglas"
+  ],
+  "B2": [
+    "2-control-atributo"
+  ],
+  "B3": [
+    "3-compra-puntos"
+  ],
+  "B4": [
+    "4-elegir-clase"
+  ],
+  "B5": [
+    "5-forja"
+  ]
+}

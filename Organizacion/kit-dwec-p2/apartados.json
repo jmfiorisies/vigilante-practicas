@@ -1,0 +1,53 @@
+{
+  "A1": [
+    "2-recurrente"
+  ],
+  "A2": [
+    "3-columna"
+  ],
+  "A3": [
+    "4-tablero"
+  ],
+  "A4": [
+    "5-errores"
+  ],
+  "A5": [
+    "5-errores"
+  ],
+  "B1": [
+    "1-tarjeta"
+  ],
+  "B2": [
+    "2-formulario"
+  ],
+  "B3": [
+    "3-delegacion"
+  ],
+  "B4": [
+    "4-pintar"
+  ],
+  "B5": [
+    "5-acciones"
+  ],
+  "B6": [
+    "6-alta"
+  ],
+  "C1": [
+    "2-serializar"
+  ],
+  "C2": [
+    "3-red"
+  ],
+  "C3": [
+    "4-tablero-json"
+  ],
+  "C4": [
+    "4-tablero-json"
+  ],
+  "C5": [
+    "5-persistencia"
+  ],
+  "C6": [
+    "5-persistencia"
+  ]
+}

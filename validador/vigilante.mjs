@@ -162,7 +162,10 @@ function pasarKit(kit, base, codigo, env, guardarSalida) {
     const fichero = readdirSync(base).find((f) => /-progreso\.json$/.test(f));
     if (r.status !== 0 || !fichero) return { aviso: `el kit falló (${r.status ?? "tiempo"})` };
     const progreso = JSON.parse(readFileSync(join(base, fichero), "utf8"));
-    return { foto: fotoDe(progreso, codigo), hitos: progreso.hitos };
+    // Qué prueba es cada apartado (lo deja tools/validador-kits.sh al subir los kits, sacado del enunciado)
+    const fApartados = join(kit, "apartados.json");
+    const apartados = existsSync(fApartados) ? JSON.parse(readFileSync(fApartados, "utf8")) : undefined;
+    return { foto: fotoDe(progreso, codigo), hitos: progreso.hitos, apartados };
 }
 
 // ── Una tarea: una práctica ──
@@ -224,7 +227,7 @@ async function hacerTarea(t, panel, ajustes, log) {
                     continue;
                 }
                 clonados.add(alumno.codigo);
-                const { foto, hitos, aviso } = pasarKit(
+                const { foto, hitos, apartados, aviso } = pasarKit(
                     join(ajustes.kits, t.kit),
                     base,
                     alumno.codigo,
@@ -235,7 +238,7 @@ async function hacerTarea(t, panel, ajustes, log) {
                     await mal(aviso);
                     continue;
                 }
-                Object.assign(resultado, { foto }, hitos && { hitos });
+                Object.assign(resultado, { foto }, hitos && { hitos }, apartados && { apartados });
             }
             await panel("resultado", resultado);
             log(
